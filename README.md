@@ -21,6 +21,9 @@ Includes bsd+patent license, and an attempt at providing a compatibility clause
 for the apache 2.0 license.
 
 ### BSD_PLUS_PATENT
+See also: BSD-2-Clause Plus Patent License <https://opensource.org/licenses/BSDplusPatent>. 
+spdx.org code: BSD-2-Clause-Patent
+
 #### Justification for another license
 The bsd+patent license is a halfway-house between the MIT License and the Apache 2.0 license
 #### Advantages

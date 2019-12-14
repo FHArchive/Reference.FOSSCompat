@@ -127,30 +127,58 @@ def removeLeftMargin(image, padding):
 	"""
 	return image.crop((padding, 0, image.width, image.height))
 
+def removeBottomMargin(image, padding):
+	"""Remove the bottom margin of width = padding from an image
+
+	Args:
+		image (PIL.Image.Image): A PIL Image
+		padding (int): The padding in pixels
+
+	Returns:
+		PIL.Image.Image: A PIL Image
+	"""
+	return image.crop((0, 0, image.width, image.height - padding))
+
+"""FILES stores data on files to reduce the amount of copying and pasting code
+that I would otherwise have to do. Elements in this dictionary are to be accessed
+from within a for loop... In the form name: src_file, color_index, bottom_margin
+"""
+FILES = {
+	"SoftwareBlack": ["Software", 3, 400],
+	"SoftwareDark": ["Software", 1, 400],
+	"SoftwareLight": ["Software", 2, 400],
+	"SoftwareBlackS": ["Software", 3, 0],
+	"SoftwareDarkS": ["Software", 1, 0],
+	"SoftwareLightS": ["Software", 2, 0],
+
+	"MediaBlack": ["Media", 3, 200],
+	"MediaDark": ["Media", 1, 200],
+	"MediaLight": ["Media", 2, 200],
+	"MediaBlackS": ["Media", 3, 0],
+	"MediaDarkS": ["Media", 1, 0],
+	"MediaLightS": ["Media", 2, 0],
+}
 
 if __name__ == "__main__":
-	SoftwareDark = SoftwareLight = SoftwareBlack = removeLeftMargin(
-		openImage("ImageSource/Software.png").quantize(colors=len(COLORS), method=2, kmeans=1, dither=None),
-		200
-	)
-	for color in COLORS:
-		print(COLORS.get(color))
-		SoftwareDark = findAndReplace(
-			SoftwareDark,
-			COLORS.get(color)[0],
-			COLORS.get(color)[1]
-		)
-		SoftwareLight = findAndReplace(
-			SoftwareLight,
-			COLORS.get(color)[0],
-			COLORS.get(color)[2]
-		)
-		SoftwareBlack = findAndReplace(
-			SoftwareBlack,
-			COLORS.get(color)[0],
-			COLORS.get(color)[3]
+
+	for fileDest in FILES:
+		print("Working on: "+ fileDest)
+		fileAttributes = FILES.get(fileDest)
+		imageSrc = removeBottomMargin(
+			removeLeftMargin(
+				openImage("ImageSource/"+fileAttributes[0]+".png")
+				.quantize(colors=len(COLORS), method=2, kmeans=1, dither=None),
+			200
+			), fileAttributes[2]
 		)
 
-	saveImage("ImageOut/SoftwareDark.png", SoftwareDark)
-	saveImage("ImageOut/SoftwareLight.png", SoftwareLight)
-	saveImage("ImageOut/SoftwareBlack.png", SoftwareBlack)
+		for color in COLORS:
+			print(COLORS.get(color))
+			imageSrc = findAndReplace(
+				imageSrc,
+				COLORS.get(color)[0],
+				COLORS.get(color)[fileAttributes[1]]
+			)
+
+
+		saveImage("ImageOut/"+fileDest+".png", imageSrc)

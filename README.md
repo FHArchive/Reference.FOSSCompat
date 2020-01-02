@@ -6,7 +6,7 @@
 <a href="../../issues"><img src="https://img.shields.io/github/issues/FredHappyface/FOSSCompat.svg?style=flat-square" alt="Issues"></a>
 <a href="/LICENSE.md"><img src="https://img.shields.io/github/license/FredHappyface/FOSSCompat.svg?style=flat-square" alt="License"></a>
 <a href="../../commits/master"><img src="https://img.shields.io/github/commit-activity/m/FredHappyface/FOSSCompat.svg?style=flat-square" alt="Commit activity"></a>
-<a href="../../commits/master"><img src="https://img.shields.io/github/last-commit/FredHappyface/FOSSCompat.svg?"style=flat-square" alt="Last commit"></a>
+<a href="../../commits/master"><img src="https://img.shields.io/github/last-commit/FredHappyface/FOSSCompat.svg?style=flat-square" alt="Last commit"></a>
 </p>
 
 # FOSSCompat
@@ -67,8 +67,7 @@ It may be worth selecting an 'S' image if you wish to include sources but
 do not wish to include them in text
 
 ## Licenses
-Includes bsd+patent license, and an attempt at providing a compatibility clause
-for the apache 2.0 license.
+Includes bsd+patent license.
 
 ### BSD_2_CLAUSE_PATENT
 BSD-2-Clause Plus Patent License <https://opensource.org/licenses/BSDplusPatent>.

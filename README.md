@@ -9,7 +9,7 @@
 
 # Reference.FOSSCompat
 
-<img src="readme-assets/icons/proj-icon.png" alt="Project Icon" width="100">
+<img src="readme-assets/icons/name.png" alt="Project Icon" width="750">
 
 ## FOSS Licenses
 Images showing the relationship between FOSS licenses.
